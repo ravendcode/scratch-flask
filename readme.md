@@ -13,8 +13,8 @@
 2. `python init_db.py`
 3. `npm i -g nodemon`
 4. `npm i`
-5. `npm run dev`
-6. `npm run trans`
-7. `npm run trans_en`
-8. `npm run trans_ru`
-9. `npm run trans_compile`
+5. `npm run trans`
+6. `npm run trans_en`
+7. `npm run trans_ru`
+8. `npm run trans_compile`
+9. `npm run dev`
