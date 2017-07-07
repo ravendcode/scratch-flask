@@ -1,0 +1,21 @@
+{% macro render_form(form) %}
+  {% for field in form if field.name != 'csrf_token' %}
+    <div class="form-group{% if field.errors %} has-error{% endif %}">
+      {{ field.label(class='control-label') }}
+      {{ field(class='form-control') }}
+      {% if field.errors %}
+        <span class="help-block">{{ field.errors[0] }}</span>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endmacro %}
+
+{% macro render_field(form_field, placeholder='') %}
+  <div class="form-group{% if form_field.errors %} has-error{% endif %}">
+    {{ form_field.label(class='control-label') }}
+    {{ form_field(class='form-control', placeholder=placeholder) }}
+    {% if form_field.errors %}
+      <span class="help-block">{{ form_field.errors[0] }}</span>
+    {% endif %}
+  </div>
+{% endmacro %}

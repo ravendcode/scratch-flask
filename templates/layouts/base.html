@@ -1,0 +1,35 @@
+{% from '_utils/macros.html' import render_form, render_field %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="robots" content="all">
+  <title>{{ app.site_name }} | {% block title %}Home{% endblock %}</title>
+  {% block css %}
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+  {% endblock %}
+</head>
+<body>
+  <script src="/node_modules/moment/min/moment.min.js"></script>
+  {% if g.locale != 'en' %}
+    <script src="/node_modules/moment/locale/{{ g.locale }}.js"></script>
+  {% endif %}
+
+  {% include '_includes/nav.html' %}
+
+  <div class="container">
+    {% include '_includes/flash.html' %}
+    {% block content %}{% endblock %}
+  </div>
+  {% block js %}
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  {% endblock %}
+</body>
+</html>

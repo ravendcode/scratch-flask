@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Post Create{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Post Create</h1>
+  <form action="" method="POST">
+    {{ form.csrf_token }}
+    {{ render_form(form) }}
+    <button type="submit" class="btn btn-primary">{{ gettext('button.create') }}</button>
+  </form>
+{% endblock %}

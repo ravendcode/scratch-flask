@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}List Post{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">{{ _('List Post') }}</h1>
+  <a href="{{ url_for('posts.post_create') }}"><span class="glyphicon glyphicon-book"></span> Post Create</a>
+  {% for post in posts %}
+    <article>
+      {% include 'posts/_post.html' %}
+    </article>
+  {% endfor %}
+{% endblock %}

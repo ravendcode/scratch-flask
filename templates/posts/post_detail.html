@@ -1,0 +1,8 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  {% include 'posts/_post.html' %}
+  <p>Author: {{ post.user.username }}</p>
+{% endblock %}

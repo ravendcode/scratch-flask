@@ -1,0 +1,6 @@
+<article>
+  <h2><a href="{{ url_for('posts.post_detail', id=post.id) }}">{{ post.title }}</a></h2>
+  <p>{{ post.created_at }}</p>
+  <p>{{ momentjs(post.created_at).fromNow() }}</p>
+  <p>{{ post.body }}</p>
+</article>
