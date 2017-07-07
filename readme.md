@@ -10,7 +10,7 @@
 ### Usage
 1. Edit `config.py`
 2. `pip install -r requirements.txt`
-2. python init_db.py
+2. `python init_db.py`
 3. `npm i -g nodemon`
 4. `npm i`
 5. `npm run dev`
