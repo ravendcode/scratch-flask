@@ -2,8 +2,9 @@ from flask import (abort, Blueprint, render_template, redirect, url_for,
                    session, logging, request, flash, g)
 from flask_babel import gettext as _
 from flask_login import login_user, logout_user, login_required
+from flask_mail import Message
 
-from app import app, db, login_manager
+from app import app, db, login_manager, mail
 from .forms import RegisterForm, LoginForm
 from .models import User
 from ..base.utils import is_safe_url
@@ -26,6 +27,17 @@ def register():
         user.password = User.hash_password(user.password)
         db.session.add(user)
         db.session.commit()
+        # msg = Message(app.config['SITE_NAME'],
+        #               sender=app.config['ADMINS'][0],
+        #               recipients=[user.email])
+        # msg.body = 'Спасибо что зарегистрировались'
+
+        msg = Message(app.config['SITE_NAME'],
+                      sender=app.config['ADMINS'][0],
+                      recipients=[user.email],
+                      html=render_template('email/register.html', username=user.username))
+        mail.send(msg)
+        login_user(user)
         return redirect(url_for('home'))
     return render_template('auth/register.html', form=form)
 

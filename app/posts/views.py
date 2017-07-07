@@ -19,7 +19,6 @@ def post_list():
 @posts.route('/<int:id>')
 def post_detail(id):
     post = Post.query.get_or_404(id)
-
     return render_template('posts/post_detail.html', post=post)
 
 

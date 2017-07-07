@@ -30,6 +30,16 @@ MAIL_SERVER = 'localhost'
 MAIL_PORT = 25
 MAIL_USERNAME = None
 MAIL_PASSWORD = None
-
+MAIL_USE_TLS = False
+MAIL_USE_SSL = False
 # administrator list
 ADMINS = ['admin@email.com']
+
+# gmail
+# MAIL_SERVER = 'smtp.googlemail.com'
+# MAIL_PORT = 465
+# MAIL_USE_TLS = False
+# MAIL_USE_SSL = True
+# MAIL_USERNAME = 'your-gmail-username'
+# MAIL_PASSWORD = 'your-gmail-password'
+# ADMINS = ['admin@gmail.com']
