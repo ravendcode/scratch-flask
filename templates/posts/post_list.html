@@ -5,9 +5,50 @@
 {% block content %}
   <h1 class="page-header">{{ _('List Post') }}</h1>
   <a href="{{ url_for('posts.post_create') }}"><span class="glyphicon glyphicon-book"></span> Post Create</a>
-  {% for post in posts %}
+  {% for post in posts.items %}
     <article>
       {% include 'posts/_post.html' %}
     </article>
   {% endfor %}
+  <nav>
+    <ul class="pager">
+      {% if posts.has_prev %}
+        <li class="previous"><a href="{{ url_for('posts.post_list', page=posts.prev_num) }}">
+          <span aria-hidden="true">&larr;</span> Older</a></li>
+      {% else %}
+         <li class="previous disabled"><a href="{{ url_for('posts.post_list', page=posts.prev_num) }}">
+          <span aria-hidden="true">&larr;</span> Older</a></li>
+      {% endif %}
+      {% if posts.has_next %}
+        <li class="next"><a href="{{ url_for('posts.post_list', page=posts.next_num) }}">
+          Newer <span aria-hidden="true">&rarr;</span></a></li>
+      {% else %}
+        <li class="next disabled"><a href="{{ url_for('posts.post_list', page=posts.next_num) }}">
+          Newer <span aria-hidden="true">&rarr;</span></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <div class="paginate">
+    {% if posts.has_prev %}
+      <a href="{{ url_for('posts.post_list', page=posts.prev_num) }}"><< Prev</a>
+    {% else %}
+      {{ '<< Prev' }}
+    {% endif %}
+    {% if posts.has_next %}
+      <a href="{{ url_for('posts.post_list', page=posts.next_num) }}">Next >></a>
+    {% else %}
+      {{ 'Next >>' }}
+    {% endif %}
+  </div>
+{% endblock %}
+
+
+{% block js %}
+  {{ super() }}
+  <script>
+    // count posts in nav
+    $.getJSON('/posts', function (data) {
+      $('.page-header').append(' <span class="badge">' + data.count + '</span>')
+    });
+  </script>
 {% endblock %}

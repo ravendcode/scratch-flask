@@ -38,6 +38,7 @@ def register():
                       html=render_template('email/register.html', username=user.username))
         mail.send(msg)
         login_user(user)
+        flash(_('Вы успешно зарегистрировались.'), 'success')
         return redirect(url_for('home'))
     return render_template('auth/register.html', form=form)
 

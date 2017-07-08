@@ -29,4 +29,10 @@
       $('.alert').slideUp('slow');
     }, 3000);
   }
+
+  // disabled
+  $('.disabled').on('click', function (e) {
+    e.preventDefault();
+  });
+
 }());

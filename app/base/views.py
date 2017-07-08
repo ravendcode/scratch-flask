@@ -1,4 +1,4 @@
-from flask import render_template, send_from_directory, request, g
+from flask import render_template, send_from_directory, request, g, make_response
 from flask_login import current_user
 
 from app import app, babel, db
@@ -34,6 +34,7 @@ def send_node_modules(path):
 
 @app.errorhandler(404)
 def not_found_error(e):
+    print(e)
     return render_template('errors/404.html'), 404
 
 
@@ -56,3 +57,4 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('base/contact.html')
+

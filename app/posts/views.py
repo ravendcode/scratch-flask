@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, g
+from flask import Blueprint, render_template, request, redirect, url_for, g, jsonify
 from werkzeug.exceptions import abort
 from flask_login import login_required
 
@@ -12,7 +12,15 @@ posts = Blueprint('posts', __name__, url_prefix='/posts')
 
 @posts.route('/')
 def post_list():
-    posts = Post.query.all()
+    # posts = Post.query.all()
+    page = int(request.args.get('page', 1))
+    # posts = Post.query.paginate(page, 2).items
+    posts = Post.query.paginate(page, 2)
+    if request.is_xhr:
+        posts = Post.query.all()
+        return jsonify({
+            'count': len(posts)
+        })
     return render_template('posts/post_list.html', posts=posts)
 
 

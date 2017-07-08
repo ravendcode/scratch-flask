@@ -1,7 +1,6 @@
 import wtforms as f
 from wtforms.validators import ValidationError
 from sqlalchemy import or_
-from passlib.hash import sha256_crypt
 
 from app import db
 from ..base.forms import BaseForm, Unique
