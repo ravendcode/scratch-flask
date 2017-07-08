@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-04 19:36+0300\n"
-"PO-Revision-Date: 2017-07-04 19:36+0300\n"
+"POT-Creation-Date: 2017-07-08 23:55+0300\n"
+"PO-Revision-Date: 2017-07-08 23:55+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,15 +19,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: app/auth/views.py:34
-msgid "Good"
+#: app/auth/views.py:41
+msgid "Вы успешно зарегистрировались."
+msgstr ""
+
+#: app/auth/views.py:57
+msgid "Вы успешно вошли."
+msgstr ""
+
+#: app/base/forms.py:26
+msgid "Такое название уже занято."
 msgstr ""
 
 #: templates/posts/post_create.html:10
 msgid "button.create"
-msgstr "Создать"
+msgstr ""
 
 #: templates/posts/post_list.html:6
 msgid "List Post"
-msgstr "Список Постов"
+msgstr ""
 

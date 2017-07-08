@@ -10,11 +10,8 @@
 ### Usage
 1. Edit `config.py`
 2. `pip install -r requirements.txt`
-2. `python init_db.py`
-3. `npm i -g nodemon`
-4. `npm i`
-5. `npm run trans`
-6. `npm run trans_en`
-7. `npm run trans_ru`
-8. `npm run trans_compile`
-9. `npm run dev`
+3. `python init_db.py`
+4. `python manage.py trans` or custom language `python manage.py trans -l en,ru`
+5. `npm i -g nodemon`
+6. `npm i`
+7. `npm run dev`

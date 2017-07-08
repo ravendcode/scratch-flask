@@ -6,10 +6,6 @@
   "scripts": {
     "start": "npm i",
     "dev": "nodemon --exec py run.py -e py",
-    "trans": "pybabel extract -F babel.cfg -k lazy_gettext -o translations/messages.pot app templates",
-    "trans_en": "pybabel init -i translations/messages.pot -d translations -l en",
-    "trans_ru": "pybabel init -i translations/messages.pot -d translations -l ru",
-    "trans_compile": "pybabel compile -d translations",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

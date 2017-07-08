@@ -6,5 +6,3 @@ d = datetime.now()
 
 print(d.replace(year=d.year + 1))
 
-
-print(type(1) == int)
