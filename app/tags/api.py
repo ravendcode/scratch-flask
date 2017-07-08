@@ -29,7 +29,7 @@ class TagView(MethodView):
         return 'delete {}'.format(id)
 
 
-class TagApi(Resource):
+class TagAPI(Resource):
     def get(self, id=None, page=1):
         if not id:
             tags = Tag.query.paginate(page, 2).items

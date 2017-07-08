@@ -67,10 +67,10 @@ app.register_blueprint(posts)
 
 
 # api
-from .tags.api import TagApi
+from .tags.api import TagAPI
 
 api.add_resource(
-    TagApi,
+    TagAPI,
     '/api/tags',
     '/api/tags/<int:id>'
 )
